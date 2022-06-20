@@ -1,0 +1,49 @@
+#channel-banner {
+    width: 100%;
+}
+
+#channel-info {
+    width: 100%;
+    height: 10vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#channel-logo {
+    height: 20vh;
+
+    border-radius: 90px;
+    border: 1px solid black;
+
+    transform: translateY(-10vh);
+}
+
+#channel-name {
+
+}
+
+#channel-sub-btn {
+    height: 5vh;
+    width: 20vh;
+
+    border: none;
+    border-radius: 10px;
+    border: 2px solid yellow;
+    background-color: #cece0e;
+}
+
+.subed {
+    background-color: grey!important;
+}
+
+#table-stats {
+    width: 40vw;
+    border: 1px solid black;
+}
+
+td{
+    margin: 1vh;
+}

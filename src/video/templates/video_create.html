@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static "css/videos_index.css" %}">
+{% endblock %}
+
+{% block content %}
+
+    <form action="{% url 'video_import_url' %}" method="POST" style="width: 40vw">
+        {% csrf_token %}
+        <p>Saisissez l'url de la vidéo youtube que vous souhaitez importer</p>
+        <input type="text" name="url" id="url" placeholder="https://www.youtube.com/watch?v=Bn0k9DDYBZM" style="width: 65%">
+        <input type="submit" value="Importer la vidéo" style="width: 30%">
+    </form>
+
+{% endblock content %}

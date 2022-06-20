@@ -1,0 +1,19 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/channel_index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <ul id="list_channels">
+        {% for channel in channels %}
+            <li>
+                <a href="{% url 'channel_watch_url' slug=channel.slug %}">
+                    <img src="{{media_url}}{{ channel.logo.url }}" alt="logo {{ channel.name }}">
+                    <h3>{{channel.name}}</h3>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

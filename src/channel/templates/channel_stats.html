@@ -1,0 +1,44 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/channel_stats.css' %}">
+{% endblock %}
+
+{% block content %}
+    <img id="channel-banner" src="{{media_url}}{{channel.banner.url}}" alt="Logo de {{ logo.channel.name }}">
+
+    <section id="channel-info">
+        <img id="channel-logo" src="{{media_url}}{{channel.logo.url}}" alt="Banner de {{ banner.channel.name }}">
+        <h2 id="channel-name">{{ channel.name }}</h2>
+        <button id="channel-sub-btn" {% if subed %}class="subed"{% endif %}><a href="{% url 'channel_subscribe_url' slug=channel.slug %}">Subs : {{ subs }}</a></button>
+    </section>
+
+    <table id="table-stats">
+        <th>
+            <tr>
+                <td>Label</td>
+                <td>Value</td>
+            </tr>
+        </th>
+        <tb>
+            <tr>
+                <td>Subs</td>
+                <td>{{ subs }}</td>
+            </tr>
+            <tr><td>Watchs</td>
+                <td>{{ watchs }}</td></tr>
+            <tr>
+            </tr>
+            <tr>
+                <td>Likes</td>
+                <td>{{ likes }}</td>
+            </tr>
+            <tr>
+                <td>Comments</td>
+                <td>{{ comments }}</td>
+            </tr>
+        </tb>
+    </table>
+
+{% endblock content %}

@@ -1,0 +1,71 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/video_watch.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id="section-left">
+        <section id="section_video">
+            <iframe width="560" height="315" src="{{ video.source }}" title="{{ video.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <section>
+                <h1>{{ video.title }}</h1>
+            </section>
+
+            <section id="under-video">
+                <a id="btn-channel" href="{% url 'channel_watch_url' slug=channel.slug %}"><span>{{ channel.name }}</span></a>
+                <a id="btn-like" href="{% url 'video_like_url' pk=video.pk %}"><data value="{{ likes }}"}>{{ likes }}</data> {% if liked %} {% include 'logo-liked.svg' %} {% else %} {% include 'logo_like.svg' %} {% endif %}</a>
+            </section>
+
+            <section id="desc">{{ video.desc }}</section>
+
+            <ul id="list-tags">
+                {%  for tag in tags %}
+                    <li>{{ tag }} |</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="section_comment">
+            <form action="{%url 'video_comment_url' pk=video.pk%}" method="POST">
+                {% csrf_token %}
+                <textarea name="comment" id="comment" cols="90" rows="6"></textarea>
+                <input type="submit" value="Commenter">
+            </form>
+
+            <ul>
+                {% for comment in comments %}
+                    <li>
+                        <p class="comment">
+                            <span class="user-comment">{{comment.comment.user}} : </span>
+                            {{ comment.comment.content }}
+                            {% if comment.currentUser %}
+                                <a class="btn-delete-comment" href="{% url 'comment_delete_url' pk=comment.comment.pk %}"><span>X</span></a>
+                            {% endif %}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </section>
+
+    <section id="section-right">
+        <ul>
+            {% for video in recommended_videos %}
+                <li>
+                    <a href="{% url 'video_watch_url' video.video.slug %}">
+                        <img src="{{ video.video.thumbnail }}" alt="{{ video.video.title }}">
+                        <section class="video-info">
+                            <p class="right-title">{{ video.video.title }}</p>
+                            <p class="right-channel">{{ video.video.channel.name }}</p>
+                        </section>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+
+
+{% endblock content %}

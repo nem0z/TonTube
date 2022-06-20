@@ -1,0 +1,13 @@
+<ul>
+    {% for comment in comments %}
+        <li>
+            <p>
+                <span>{{ comment.comment.user.username }}</span>
+                {{ comment.comment.content }}
+                {% if comment.currentUser %}
+                    <a href="{% url 'comment_delete_url' pk=comment.comment.pk %}">[X]</a>
+                {% endif %}
+            </p>
+        </li>
+    {% endfor %}
+</ul>

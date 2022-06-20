@@ -1,0 +1,25 @@
+#channel-create-form {
+    width: 40vw;
+}
+
+#channel-create-form *{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1vh;
+    margin-right: 5vh;
+}
+
+#channel-create-form input[type="text"]{
+    width: 50%;
+    height: 3vh;
+}
+
+#channel-create-form input[type="submit"]{
+    width: 15vw;
+    margin-left: 10vw;
+
+    height: 3vh;
+}

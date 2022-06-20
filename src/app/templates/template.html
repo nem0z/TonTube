@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TonTube</title>
+    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+
+    {%  block header %}
+
+    {%  endblock %}
+
+</head>
+<body>
+
+    <header>
+
+        <div id="div-logo">
+            <a href="/">
+                <img src="https://cdn.pixabay.com/photo/2021/02/16/06/00/youtube-logo-6019878_640.png" alt="logo tontube" id="logo-main">
+            </a>
+        </div>
+
+        <form action="{% url 'video_search_url' %}" method="get" id="search-bar">
+            {% csrf_token %}
+            <input type="text" name="q">
+            <button type="submit" value=""><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-search-ui-dreamstale-lineal-dreamstale-2.png"/></button>
+        </form>
+
+        <button id="btn-import">
+            <a href="{% url 'video_import_url' %}">{% include 'logo_import.svg' %}</a>
+        </button>
+
+        <section id="menu-profil">
+            <ul>
+                {% if not user.is_anonymous %}
+                    <li>{{ user }}</li>
+                    <li><a href="{% url 'channel_my_url' %}">My channel</a></li>
+                    <li><a href="/accounts/logout/">Log out</a></li></l>
+                {% else %}
+                    <li><a href="/accounts/login/">Log in</a></li>
+                    <li><a href="/accounts/register/">Sign in</a></li>
+                {% endif %}
+            </ul>
+            </section>
+
+    </header>
+
+    <main>
+        {% block content %}
+        {%  endblock %}
+    </main>
+
+    <footer>
+        <p>Pied de page</p>
+        {% block footer %}
+        {% endblock %}
+    </footer>
+
+</body>
+</html>

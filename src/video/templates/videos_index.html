@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/videos_index.css' %}">
+{% endblock %}
+
+{% block content %}
+        <ul id="menu-videos">
+            <li>
+                <a href="/videos/subs/">Subscribe</a>
+            </li>
+            <li>
+                <a href="/videos/history/">History</a>
+            </li>
+            <li>
+                <a href="/videos/trends/">Trends</a>
+            </li>
+        </ul>
+        <ul class="list-videos">
+        {% for video in videos %}
+            <li>
+                <a href="{% url 'video_watch_url' video.slug %}">
+                    <img src="{{ video.thumbnail }}" alt="{{ video.title }}">
+                    {{ object.video }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

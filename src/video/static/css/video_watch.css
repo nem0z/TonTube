@@ -1,0 +1,140 @@
+main {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+#section-left {
+    width: 60%;
+    overflow: hidden;
+
+    padding: 2vw;
+}
+
+#section-right {
+    width: 40%;
+    padding: 2vw;
+}
+
+#section-right ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+#section-right li {
+    margin-bottom: 2vh;
+}
+
+#section-right li img {
+    max-width: 50%;
+}
+
+#section-right li a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.video-info {
+    diplay: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.right-channel {
+    font-style: italic;
+}
+
+#section-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#section-left section {
+    margin-bottom: 3vh;
+}
+
+#under-video {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 40vw;
+    height: 10vh;
+}
+
+#btn-like {
+    height: 50%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.liked svg {
+    fill: red;
+}
+
+#desc {
+    max-height: 20vh;
+    overflow: scroll;
+}
+
+#list-tags {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+input[type="submit"] {
+    margin-top: 1vh;
+}
+
+.comment {
+    min-height: 5vh;
+    width: 50vw;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 1vw;
+
+    box-shadow: 5px 3px 3px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(0, 0, 0, 0.55);
+
+    margin-top: 2vh;
+}
+
+.btn-delete-comment {
+    min-width: 2vw;
+}
+
+.user-comment {
+    min-width: 8vw;
+}
+
+
+
+

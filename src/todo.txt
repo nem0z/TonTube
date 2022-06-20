@@ -1,0 +1,5 @@
+- Systeme complet de user
+- Page graphique / channel
+- barre de recherche + algo
+- algo detection de gouts
+- video similaire systeme + algo

@@ -1,0 +1,14 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/channel_create.css' %}">
+{% endblock %}
+
+{% block content %}
+    <form id="channel-create-form" action="" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Create channel">
+    </form>
+{% endblock content %}

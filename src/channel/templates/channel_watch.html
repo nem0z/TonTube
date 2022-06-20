@@ -1,0 +1,23 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block header %}
+    <link rel="stylesheet" href="{% static 'css/channel_watch.css' %}">
+{% endblock %}
+
+{% block content %}
+    <img id="channel-banner" src="{{media_url}}{{ channel.banner }}" alt="Logo de {{ logo.channel.name }}">
+
+    <section id="channel-info">
+        <img id="channel-logo" src="{{media_url}}{{ channel.logo }}" alt="Banner de {{ banner.channel.name }}">
+        <h2 id="channel-name">{{ channel.name }}</h2>
+        <button id="channel-sub-btn" {% if subed %}class="subed"{% endif %}><a href="{% url 'channel_subscribe_url' slug=channel.slug %}">Subs : {{ subs }}</a></button>
+    </section>
+
+    <ul class="list-videos">
+        {% for video in videos %}
+            <li><a href="{% url 'video_watch_url' video.slug %}"><img src="{{ video.thumbnail }}" alt="{{ video.title }}"></a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
